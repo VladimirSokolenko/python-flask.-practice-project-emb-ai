@@ -19,10 +19,11 @@ def sent_analyzer():
     '''
     # TODO
     text_to_analyze = request.args.get('textToAnalyze')
-    print(f'Text: \'{text_to_analyze}\'')
+    # print(f'Text: \'{text_to_analyze}\'')
     response = sentiment_analyzer(text_to_analyze)
-    print(f'Response: {response}')
-    return response
+    # print(f'Response: {response}')
+    response_string = (f"The given text has been identified as {response['label']} with a score of {response['score']}.")
+    return response_string
 
 @app.route("/")
 def render_index_page():

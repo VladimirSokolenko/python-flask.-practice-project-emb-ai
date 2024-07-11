@@ -2,10 +2,13 @@
     analysis to be executed over the Flask channel and deployed on
     localhost:5000.
 '''
-# Import Flask, render_template, request from the flask pramework package : TODO
+# Import Flask, render_template, request from the flask framework package : TODO
+from flask import Flask, render_template, request
 # Import the sentiment_analyzer function from the package created: TODO
+from SentimentAnalysis.sentiment_analysis import sentiment_analyzer
 
 #Initiate the flask app : TODO
+app = Flask('SentimentAnalyserAPI')
 
 @app.route("/sentimentAnalyzer")
 def sent_analyzer():
@@ -15,6 +18,8 @@ def sent_analyzer():
         score for the provided text.
     '''
     # TODO
+    text = request.data
+    return sentiment_analyzer(text)
 
 @app.route("/")
 def render_index_page():
@@ -22,7 +27,9 @@ def render_index_page():
         page over the Flask channel
     '''
     #TODO
+    return render_template('index.html')
 
 if __name__ == "__main__":
     ''' This functions executes the flask app and deploys it on localhost:5000
     '''#TODO
+    

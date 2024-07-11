@@ -1,6 +1,7 @@
 import json
 from SentimentAnalysis.sentiment_analysis import sentiment_analyzer
-text = 'I love this new technology.'
+# text = 'I love this new technology.'
+text = 'I do know Python'
 # text = "This is fun."
 # text = 'I love working with Python'  # “SENT_POSITIVE”
 # text = 'I hate working with Pyhton'  # “SENT_NEGATIVE”

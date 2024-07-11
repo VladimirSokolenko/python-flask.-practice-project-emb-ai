@@ -18,8 +18,11 @@ def sent_analyzer():
         score for the provided text.
     '''
     # TODO
-    text = request.data
-    return sentiment_analyzer(text)
+    text_to_analyze = request.args.get('textToAnalyze')
+    print(f'Text: \'{text_to_analyze}\'')
+    response = sentiment_analyzer(text_to_analyze)
+    print(f'Response: {response}')
+    return response
 
 @app.route("/")
 def render_index_page():
@@ -32,4 +35,4 @@ def render_index_page():
 if __name__ == "__main__":
     ''' This functions executes the flask app and deploys it on localhost:5000
     '''#TODO
-    
+    app.run(host="0.0.0.0", port=5000)
